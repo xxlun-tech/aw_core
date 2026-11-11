@@ -39,14 +39,14 @@ using TrajectoryPoints = std::vector<autoware_planning_msgs::msg::TrajectoryPoin
  * points larger than the capacity. (Tier IV)
  */
 autoware_planning_msgs::msg::Trajectory convertToTrajectory(
-  const std::vector<autoware_planning_msgs::msg::TrajectoryPoint> & trajectory,
+  const TrajectoryPoints & trajectory,
   const std_msgs::msg::Header & header = std_msgs::msg::Header{});
 
 /**
  * @brief Convert autoware_planning_msgs::msg::Trajectory to
  * std::vector<autoware_planning_msgs::msg::TrajectoryPoint>.
  */
-std::vector<autoware_planning_msgs::msg::TrajectoryPoint> convertToTrajectoryPointArray(
+TrajectoryPoints convertToTrajectoryPointArray(
   const autoware_planning_msgs::msg::Trajectory & trajectory);
 
 template <class T>

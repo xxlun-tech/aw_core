@@ -118,8 +118,7 @@ autoware_control_msgs::msg::Lateral SimplePurePursuit::calc_lateral_control(
 
   // Calculate pure pursuit steering angle
   autoware_control_msgs::msg::Lateral lateral_control_command;
-  const double alpha = std::atan2(lookahead_point_y - rear_y, lookahead_point_x - rear_x) -
-                       tf2::getYaw(odom.pose.pose.orientation);
+  const double alpha = std::atan2(lookahead_point_y - rear_y, lookahead_point_x - rear_x) - vehicle_heading;
 
   lateral_control_command.steering_tire_angle = static_cast<float>(
     std::atan2(2.0 * params_.wheel_base_m * std::sin(alpha), lookahead_distance));

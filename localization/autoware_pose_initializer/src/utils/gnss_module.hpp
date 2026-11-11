@@ -36,7 +36,7 @@ public:
 private:
   void on_pose(PoseWithCovarianceStamped::ConstSharedPtr msg);
 
-  autoware::map_height_fitter::MapHeightFitter fitter_;
+  // autoware::map_height_fitter::MapHeightFitter fitter_;
   rclcpp::Clock::SharedPtr clock_;
   AUTOWARE_SUBSCRIPTION_PTR(PoseWithCovarianceStamped) sub_gnss_pose_;
   PoseWithCovarianceStamped::ConstSharedPtr pose_;

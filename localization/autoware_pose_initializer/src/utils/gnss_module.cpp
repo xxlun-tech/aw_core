@@ -25,7 +25,7 @@
 namespace autoware::pose_initializer
 {
 GnssModule::GnssModule(autoware::agnocast_wrapper::Node * node)
-: fitter_(node),
+: // fitter_(node),
   clock_(node->get_clock()),
   timeout_(node->declare_parameter<double>("gnss_pose_timeout"))
 {
@@ -59,10 +59,12 @@ geometry_msgs::msg::PoseWithCovarianceStamped GnssModule::get_pose()
   }
 
   PoseWithCovarianceStamped pose = *pose_;
+  /*
   const auto fitted = fitter_.fit(pose.pose.pose.position, pose.header.frame_id);
   if (fitted) {
     pose.pose.pose.position = fitted.value();
   }
+  */
   return pose;
 }
 }  // namespace autoware::pose_initializer
